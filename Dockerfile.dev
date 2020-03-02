@@ -1,0 +1,12 @@
+FROM node:13.8.0-alpine AS build
+
+RUN apk update
+
+WORKDIR /usr/app
+COPY package*.json ./
+
+RUN npm install -g @angular/cli && npm install
+
+COPY . .
+
+CMD ["ng", "serve", "--host", "0.0.0.0"]

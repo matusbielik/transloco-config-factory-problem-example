@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    volumes:
+      # - /app/node_modules
+      - .:/usr/app
+    command: ["ng", "serve", "--host", "0.0.0.0"]
